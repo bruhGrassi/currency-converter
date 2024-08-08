@@ -31,14 +31,14 @@ const CurrencyInput = ({
         className="flex items-center"
       >
         <SelectTrigger className="w-[220px] border-none bg-custom-blue text-white">
-          <SelectValue placeholder="Select Currency" className="text-white" />
+          <SelectValue placeholder="" className="text-white" />
         </SelectTrigger>
         <SelectContent className="border-none bg-custom-blue">
           {countries.map((country) => (
             <SelectItem
               key={country.code}
               value={country.code}
-              className="flex items-center py-2 px-4 hover:bg-gray-200"
+              className="flex items-center py-2 px-8 hover:bg-gray-200"
             >
               <div className="flex items-center">
                 <div className="w-6 h-6 mr-2">
@@ -61,7 +61,7 @@ const CurrencyInput = ({
         type="text"
         value={amount}
         onChange={(e) => onAmountChange(e.target.value)}
-        className="ml-2 border-none rounded-none bg-custom-blue text-gray-800 w-[150px]"
+        className="ml-2 border-none rounded-none bg-custom-blue text-white-800 w-[150px]"
       />
     </div>
   );
