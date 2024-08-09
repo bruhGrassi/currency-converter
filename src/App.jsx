@@ -2,14 +2,21 @@ import CurrencyInput from '@/components/CurrencyInput/CurrencyInput';
 import CurrencyChart from '@/components/CurrencyChart/CurrencyChart';
 import CustomButton from './components/CustomButton/CustomButton';
 import { useState } from 'react';
+import useFetchCurrency from './hooks/useFetchCurrency/useFetchCurrency';
 import './App.css';
 
 function App() {
-  const [primaryAmount, setPrimaryAmount] = useState('');
-  const [secondaryAmount, setSecondaryAmount] = useState('');
-  const [primaryCurrency, setPrimaryCurrency] = useState('US');
-  const [secondaryCurrency, setSecondaryCurrency] = useState('US');
-  const [period, setPeriod] = useState('30');
+  const [primaryAmount, setPrimaryAmount] = useState('1');
+  const [secondaryAmount, setSecondaryAmount] = useState('1');
+  const [primaryCurrency, setPrimaryCurrency] = useState('USD');
+  const [secondaryCurrency, setSecondaryCurrency] = useState('EUR');
+  const [period, setPeriod] = useState('5');
+
+  const {
+    data: currencyData,
+    loading,
+    error,
+  } = useFetchCurrency(primaryCurrency, secondaryCurrency, period);
 
   const handleAmountChange = (newAmount, field) => {
     if (field === 'primary') {
@@ -32,15 +39,8 @@ function App() {
   };
 
   const changeCurrency = () => {
-    console.log('change');
+    //
   };
-
-  const currencyData = [
-    { date: '2024-07-02', value: 5.1 },
-    { date: '2024-07-02', value: 2.9 },
-    { date: '2024-07-02', value: 1.1 },
-    { date: '2024-07-02', value: 3.1 },
-  ];
 
   return (
     <>
@@ -84,7 +84,9 @@ function App() {
       </div>
 
       <section>
-        <CurrencyChart period={period} data={currencyData} />
+        {loading && <p>Carregando...</p>}
+        {error && <p>Erro: {error}</p>}
+        {!loading && <CurrencyChart period={period} data={currencyData} />}
       </section>
 
       <footer className="mt-16">
