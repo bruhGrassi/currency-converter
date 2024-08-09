@@ -15,7 +15,11 @@ const chartConfig = {
 };
 
 function CurrencyChart({ data, period }) {
-  const filteredData = period === '30' ? data : data.slice(-5);
+  const sortedData = Array.isArray(data)
+    ? [...data].sort((a, b) => new Date(a.date) - new Date(b.date))
+    : [];
+
+  const filteredData = period === '30' ? sortedData : sortedData.slice(-5);
 
   return (
     <Card className="border-none">
