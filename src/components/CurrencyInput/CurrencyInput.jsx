@@ -10,11 +10,11 @@ import {
 import PropTypes from 'prop-types';
 
 const countries = [
-  { code: 'US', name: 'Dólar Americano' },
-  { code: 'CA', name: 'Dólar Canadense' },
-  { code: 'EU', name: 'Euro' },
-  { code: 'GB', name: 'Libra Esterlina' },
-  { code: 'JP', name: 'Yen Japonês' },
+  { flag: 'US', name: 'Dólar Americano', currency: 'USD' },
+  { flag: 'CA', name: 'Dólar Canadense', currency: 'CAD' },
+  { flag: 'EU', name: 'Euro', currency: 'EUR' },
+  { flag: 'GB', name: 'Libra Esterlina', currency: 'GBP' },
+  { flag: 'JP', name: 'Yen Japonês', currency: 'JPY' },
 ];
 
 const CurrencyInput = ({
@@ -36,14 +36,14 @@ const CurrencyInput = ({
         <SelectContent className="border-none bg-custom-blue">
           {countries.map((country) => (
             <SelectItem
-              key={country.code}
-              value={country.code}
+              key={country.currency}
+              value={country.currency}
               className="flex items-center py-2 px-8 hover:bg-gray-200"
             >
               <div className="flex items-center">
                 <div className="w-6 h-6 mr-2">
                   <Flag
-                    code={country.code}
+                    code={country.flag}
                     style={{
                       width: '24px',
                       height: '24px',
@@ -73,4 +73,5 @@ CurrencyInput.propTypes = {
   onAmountChange: PropTypes.func,
   onCurrencyChange: PropTypes.func,
 };
+
 export default CurrencyInput;
