@@ -17,8 +17,6 @@ const chartConfig = {
 function CurrencyChart({ data, period }) {
   const filteredData = period === '30' ? data : data.slice(-5);
 
-  console.log(data.value);
-
   return (
     <Card className="border-none">
       <CardContent>
