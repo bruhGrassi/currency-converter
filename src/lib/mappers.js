@@ -1,7 +1,9 @@
 export const mapCurrencyData = (apiResponse) => {
   const result = [];
 
-  for (const [date, valueObject] of Object.entries(apiResponse)) {
+  const data = apiResponse.response;
+
+  for (const [date, valueObject] of Object.entries(data)) {
     const value = Object.values(valueObject)[0];
     result.push({
       date,
