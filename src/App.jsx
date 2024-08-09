@@ -64,8 +64,11 @@ function App() {
     setPeriod(newPeriod);
   };
 
-  const changeCurrency = () => {
-    //
+  const invertCurrency = () => {
+    const tempCurrency = primaryCurrency;
+    setPrimaryCurrency(secondaryCurrency);
+    setSecondaryCurrency(tempCurrency);
+    convertCurrency();
   };
 
   return (
@@ -80,7 +83,7 @@ function App() {
           }
         />
 
-        <CustomButton icon={true} onClick={changeCurrency} />
+        <CustomButton icon={true} onClick={invertCurrency} />
 
         <CurrencyInput
           amount={secondaryAmount}
