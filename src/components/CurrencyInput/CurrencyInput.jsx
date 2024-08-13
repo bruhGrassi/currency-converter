@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Flag from 'react-world-flags';
 import { Input } from '@/components/ui/input';
 import {
@@ -7,7 +8,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import PropTypes from 'prop-types';
 
 const countries = [
   { flag: 'US', name: 'Dólar Americano', currency: 'USD' },

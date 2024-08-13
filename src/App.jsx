@@ -1,8 +1,8 @@
+import { useState, useEffect } from 'react';
 import CurrencyInput from '@/components/CurrencyInput/CurrencyInput';
 import CurrencyChart from '@/components/CurrencyChart/CurrencyChart';
-import CustomButton from './components/CustomButton/CustomButton';
-import { useState, useEffect } from 'react';
-import useFetchCurrency from './hooks/useFetchCurrency/useFetchCurrency';
+import CustomButton from '@/components/CustomButton/CustomButton';
+import useFetchCurrency from '@/hooks/useFetchCurrency/useFetchCurrency';
 import './App.css';
 
 function App() {
