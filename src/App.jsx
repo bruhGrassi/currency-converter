@@ -111,8 +111,6 @@ function App() {
             </p>
           </div>
 
-          {error && <p>Erro: {error}</p>}
-
           <main>
             <div className="w-full flex items-center gap-4 mb-16">
               <CustomButton
@@ -136,6 +134,7 @@ function App() {
           </footer>
         </div>
       )}
+      {error && <p>Erro: {error}</p>}
     </>
   );
 }
