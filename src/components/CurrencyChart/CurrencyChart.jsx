@@ -10,7 +10,7 @@ import {
 const chartConfig = {
   value: {
     label: 'Valor',
-    color: 'blue',
+    color: '#747bff',
   },
 };
 
