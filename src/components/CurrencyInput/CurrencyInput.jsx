@@ -24,16 +24,16 @@ const CurrencyInput = ({
   onCurrencyChange,
 }) => {
   return (
-    <div className="flex sm:flex-row items-center border border-custom-blue p-3 rounded-xl bg-custom-blue">
+    <div className="flex sm:flex-row items-center border border-custom-grey p-3 rounded-xl bg-custom-grey">
       <Select
         onValueChange={onCurrencyChange}
         value={currency}
         className="flex items-center mb-2 sm:mb-0"
       >
-        <SelectTrigger className="w-full sm:w-[220px] border-none bg-custom-blue text-white">
+        <SelectTrigger className="w-full sm:w-[220px] border-none bg-custom-grey text-white">
           <SelectValue placeholder="" className="text-white" />
         </SelectTrigger>
-        <SelectContent className="border-none bg-custom-blue">
+        <SelectContent className="border-none bg-custom-grey">
           {countries.map((country) => (
             <SelectItem
               key={country.currency}
@@ -62,7 +62,7 @@ const CurrencyInput = ({
         type="text"
         value={amount}
         onChange={(e) => onAmountChange(e.target.value)}
-        className="w-full sm:w-[150px] ml-0 sm:ml-2 border-none rounded-none bg-custom-blue text-white-800"
+        className="w-full sm:w-[150px] ml-0 sm:ml-2 border-none rounded-none bg-custom-grey text-white-800"
       />
     </div>
   );
