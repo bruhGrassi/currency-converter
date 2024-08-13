@@ -22,6 +22,8 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  width: 100%;
+  min-height: 100vh;
 }
 
 body {
@@ -81,5 +83,32 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@layer components {
+  .skeleton {
+    @apply bg-skeleton min-h-[2rem] rounded-sm relative overflow-hidden;
+
+    &::after {
+      content: '';
+      @apply absolute top-0 left-0 h-full w-full;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(145, 145, 146, 0.3),
+        transparent
+      );
+      animation: skeleton-loading 1.5s infinite;
+    }
+  }
+
+  @keyframes skeleton-loading {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
   }
 }

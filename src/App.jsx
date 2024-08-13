@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import CurrencyInput from '@/components/CurrencyInput/CurrencyInput';
 import CurrencyChart from '@/components/CurrencyChart/CurrencyChart';
 import CustomButton from '@/components/CustomButton/CustomButton';
+import Skeleton from '@/components/Skeleton/Skeleton';
 import useFetchCurrency from '@/hooks/useFetchCurrency/useFetchCurrency';
 import './App.css';
 
@@ -73,61 +74,68 @@ function App() {
 
   return (
     <>
-      <div className=" w-full flex flex-col sm:flex-row items-center gap-4 mb-4">
-        <CurrencyInput
-          amount={primaryAmount}
-          currency={primaryCurrency}
-          onAmountChange={(amount) => handleAmountChange(amount, 'primary')}
-          onCurrencyChange={(currency) =>
-            handleCurrencyChange(currency, 'primary')
-          }
-        />
-
-        <CustomButton icon={true} onClick={invertCurrency} />
-
-        <CurrencyInput
-          amount={secondaryAmount}
-          currency={secondaryCurrency}
-          onAmountChange={(amount) => handleAmountChange(amount, 'secondary')}
-          onCurrencyChange={(currency) =>
-            handleCurrencyChange(currency, 'secondary')
-          }
-        />
-      </div>
-
-      <div className="w-full mb-4 text-center">
-        <p className="text-xl sm:text-2xl mt-16 mb-4">1 {primaryCurrency}</p>
-        <p className="text-3xl sm:text-4xl mb-12">
-          {secondaryAmount} {secondaryCurrency}
-        </p>
-      </div>
-
-      {loading && <p>Carregando...</p>}
-      {error && <p>Erro: {error}</p>}
-
-      {!loading && (
-        <main>
-          <div className="w-full flex items-center gap-4 mb-16">
-            <CustomButton
-              text="5 Dias"
-              isActive={period === '5'}
-              onClick={() => handlePeriod('5')}
+      {loading ? (
+        <Skeleton />
+      ) : (
+        <div className="w-full">
+          <div className="w-full flex flex-col justify-center sm:flex-row items-center gap-4 mb-4">
+            <CurrencyInput
+              amount={primaryAmount}
+              currency={primaryCurrency}
+              onAmountChange={(amount) => handleAmountChange(amount, 'primary')}
+              onCurrencyChange={(currency) =>
+                handleCurrencyChange(currency, 'primary')
+              }
             />
-            <CustomButton
-              text="1 Mês"
-              isActive={period === '30'}
-              onClick={() => handlePeriod('30')}
+
+            <CustomButton icon={true} onClick={invertCurrency} />
+
+            <CurrencyInput
+              amount={secondaryAmount}
+              currency={secondaryCurrency}
+              onAmountChange={(amount) =>
+                handleAmountChange(amount, 'secondary')
+              }
+              onCurrencyChange={(currency) =>
+                handleCurrencyChange(currency, 'secondary')
+              }
             />
           </div>
-          <CurrencyChart period={period} data={currencyData} />
-        </main>
-      )}
 
-      <footer className="mt-16 text-center">
-        <a href="https://github.com/bruhGrassi" target="_blank">
-          Create by <span>Bruna Grassi</span>
-        </a>
-      </footer>
+          <div className="w-full mb-4 text-center">
+            <p className="text-xl sm:text-2xl mt-16 mb-4">
+              1 {primaryCurrency}
+            </p>
+            <p className="text-3xl sm:text-4xl mb-12">
+              {secondaryAmount} {secondaryCurrency}
+            </p>
+          </div>
+
+          {error && <p>Erro: {error}</p>}
+
+          <main>
+            <div className="w-full flex items-center gap-4 mb-16">
+              <CustomButton
+                text="5 Dias"
+                isActive={period === '5'}
+                onClick={() => handlePeriod('5')}
+              />
+              <CustomButton
+                text="1 Mês"
+                isActive={period === '30'}
+                onClick={() => handlePeriod('30')}
+              />
+            </div>
+            <CurrencyChart period={period} data={currencyData} />
+          </main>
+
+          <footer className="mt-16 text-center">
+            <a href="https://github.com/bruhGrassi" target="_blank">
+              Create by <span>Bruna Grassi</span>
+            </a>
+          </footer>
+        </div>
+      )}
     </>
   );
 }
