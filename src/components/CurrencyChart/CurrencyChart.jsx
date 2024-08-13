@@ -29,8 +29,8 @@ function CurrencyChart({ data, period }) {
             accessibilityLayer
             data={filteredData}
             margin={{
-              left: 8,
-              right: 8,
+              left: 4,
+              right: 4,
               bottom: 60,
             }}
           >
@@ -55,7 +55,7 @@ function CurrencyChart({ data, period }) {
             <Line
               dataKey="value"
               type="natural"
-              stroke="blue"
+              stroke="#747bff"
               strokeWidth={1}
             />
           </LineChart>

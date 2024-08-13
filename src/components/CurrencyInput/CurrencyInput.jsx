@@ -24,13 +24,13 @@ const CurrencyInput = ({
   onCurrencyChange,
 }) => {
   return (
-    <div className="flex items-center border border-custom-blue p-3 rounded-xl bg-custom-blue">
+    <div className="flex sm:flex-row items-center border border-custom-blue p-3 rounded-xl bg-custom-blue">
       <Select
         onValueChange={onCurrencyChange}
         value={currency}
-        className="flex items-center"
+        className="flex items-center mb-2 sm:mb-0"
       >
-        <SelectTrigger className="w-[220px] border-none bg-custom-blue text-white">
+        <SelectTrigger className="w-full sm:w-[220px] border-none bg-custom-blue text-white">
           <SelectValue placeholder="" className="text-white" />
         </SelectTrigger>
         <SelectContent className="border-none bg-custom-blue">
@@ -57,11 +57,12 @@ const CurrencyInput = ({
           ))}
         </SelectContent>
       </Select>
+
       <Input
         type="text"
         value={amount}
         onChange={(e) => onAmountChange(e.target.value)}
-        className="ml-2 border-none rounded-none bg-custom-blue text-white-800 w-[150px]"
+        className="w-full sm:w-[150px] ml-0 sm:ml-2 border-none rounded-none bg-custom-blue text-white-800"
       />
     </div>
   );

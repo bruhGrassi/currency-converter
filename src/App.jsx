@@ -73,7 +73,7 @@ function App() {
 
   return (
     <>
-      <div className="flex items-center gap-4 mb-4">
+      <div className=" w-full flex flex-col sm:flex-row items-center gap-4 mb-4">
         <CurrencyInput
           amount={primaryAmount}
           currency={primaryCurrency}
@@ -94,9 +94,10 @@ function App() {
           }
         />
       </div>
-      <div className="w-100 mb-4">
-        <p className="text-2xl mt-16 mb-4">1 {primaryCurrency}</p>
-        <p className="text-4xl mb-12">
+
+      <div className="w-full mb-4 text-center">
+        <p className="text-xl sm:text-2xl mt-16 mb-4">1 {primaryCurrency}</p>
+        <p className="text-3xl sm:text-4xl mb-12">
           {secondaryAmount} {secondaryCurrency}
         </p>
       </div>
@@ -106,7 +107,7 @@ function App() {
 
       {!loading && (
         <main>
-          <div className="w-100 flex items-center gap-4 mb-4">
+          <div className="w-full flex items-center gap-4 mb-16">
             <CustomButton
               text="5 Dias"
               isActive={period === '5'}
@@ -122,7 +123,7 @@ function App() {
         </main>
       )}
 
-      <footer className="mt-16">
+      <footer className="mt-16 text-center">
         <a href="https://github.com/bruhGrassi" target="_blank">
           Create by <span>Bruna Grassi</span>
         </a>
