@@ -46,10 +46,17 @@ function App() {
   };
 
   const handleAmountChange = (newAmount, field) => {
-    if (field === 'primary') {
-      setPrimaryAmount(newAmount);
-    } else {
-      setSecondaryAmount(newAmount);
+    const regex = /^[0-9]*\.?[0-9]*$/;
+
+    if (!regex.test(newAmount)) return;
+
+    const updateField = {
+      primary: setPrimaryAmount,
+      secondary: setSecondaryAmount,
+    }[field];
+
+    if (updateField) {
+      updateField(newAmount);
     }
   };
 
