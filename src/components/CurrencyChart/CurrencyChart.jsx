@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { CartesianGrid, Line, LineChart, XAxis } from 'recharts';
+import { CartesianGrid, Line, LineChart, XAxis, YAxis } from 'recharts';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   ChartContainer,
@@ -21,6 +21,11 @@ function CurrencyChart({ data, period }) {
 
   const filteredData = period === '30' ? sortedData : sortedData.slice(-5);
 
+  const values = filteredData.map((d) => d.value);
+  const minValue = Math.min(...values);
+  const maxValue = Math.max(...values);
+  const padding = (maxValue - minValue) * 0.2;
+
   return (
     <Card className="border-none">
       <CardContent>
@@ -39,6 +44,10 @@ function CurrencyChart({ data, period }) {
               stroke="#e0e0e0"
               horizontal={true}
               vertical={false}
+            />
+            <YAxis
+              type="number"
+              domain={[minValue - padding, maxValue + padding]}
             />
             <XAxis
               dataKey="date"
