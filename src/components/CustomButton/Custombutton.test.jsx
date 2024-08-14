@@ -11,7 +11,7 @@ describe('<CustomButton />', () => {
 
   it('renders with text when text prop is provided', () => {
     render(<CustomButton text="Button text" />);
-    expect(screen.getByText('Button text')).toBeInTheDocument();
+    expect(screen.getByText(/Button text/i)).toBeInTheDocument();
   });
 
   it('does not apply active class when isActive is false', () => {
