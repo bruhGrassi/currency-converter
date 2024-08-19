@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/select';
 
 const countries = [
+  { flag: 'BR', name: 'Real brasileiro', currency: 'BRL' },
   { flag: 'US', name: 'Dólar Americano', currency: 'USD' },
   { flag: 'CA', name: 'Dólar Canadense', currency: 'CAD' },
   { flag: 'EU', name: 'Euro', currency: 'EUR' },
