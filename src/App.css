@@ -50,7 +50,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 0 0 34%;
     --input: 0 0 34%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: #a3a9f0;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -128,11 +128,12 @@
 
   button:hover {
     border-color: #646cff;
+    background-color: transparent;
   }
 
   button:focus,
   button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
+    outline: 4px auto #a3a9f0;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -149,10 +150,6 @@
 
     a:hover {
       color: #747bff;
-    }
-
-    button {
-      background-color: #f9f9f9;
     }
   }
 }
@@ -182,4 +179,9 @@
       transform: translateX(100%);
     }
   }
+}
+
+.active {
+  background-color: #747bff;
+  color: #fff;
 }

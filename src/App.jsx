@@ -1,7 +1,8 @@
+import { ArrowLeftRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import CurrencyInput from '@/components/CurrencyInput/CurrencyInput';
 import CurrencyChart from '@/components/CurrencyChart/CurrencyChart';
-import CustomButton from '@/components/CustomButton/CustomButton';
+import { Button } from '@/components/ui/button';
 import Skeleton from '@/components/Skeleton/Skeleton';
 import useFetchCurrency from '@/hooks/useFetchCurrency/useFetchCurrency';
 import './App.css';
@@ -114,8 +115,12 @@ function App() {
                 handleCurrencyChange(currency, 'primary')
               }
             />
-
-            <CustomButton icon={true} onClick={invertCurrency} />
+            <Button
+              onClick={invertCurrency}
+              className={'text-green-500 bg-transparent hover:bg-transparent'}
+            >
+              <ArrowLeftRight />
+            </Button>
 
             <CurrencyInput
               currencyOptions={currencyOptions}
@@ -141,16 +146,18 @@ function App() {
 
           <main>
             <div className="w-full flex items-center gap-4 mb-16">
-              <CustomButton
-                text="5 Dias"
-                isActive={period === '5'}
+              <Button
+                className={`hover:bg-transparent hover:text-gray-100 ${period === '5' ? 'active' : ''}`}
                 onClick={() => handlePeriod('5')}
-              />
-              <CustomButton
-                text="1 Mês"
-                isActive={period === '30'}
+              >
+                5 Dias
+              </Button>
+              <Button
+                className={`hover:bg-transparent hover:text-gray-100 ${period === '30' ? 'active' : ''}`}
                 onClick={() => handlePeriod('30')}
-              />
+              >
+                1 Mês
+              </Button>
             </div>
             <CurrencyChart period={period} data={currencyData} />
           </main>
