@@ -135,9 +135,12 @@ function App() {
           </main>
 
           <footer className="mt-16 text-center">
-            <a href="https://github.com/bruhGrassi" target="_blank">
-              Create by <span>Bruna Grassi</span>
-            </a>
+            <p>
+              Created with ❤️ by{' '}
+              <a href="https://github.com/bruhGrassi" target="_blank">
+                Bruna Grassi
+              </a>
+            </p>
           </footer>
         </div>
       )}
