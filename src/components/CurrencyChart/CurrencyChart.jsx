@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from 'recharts';
-import { Card, CardContent } from '@/components/ui/card';
 import {
   ChartContainer,
   ChartTooltip,
@@ -27,50 +26,41 @@ function CurrencyChart({ data, period }) {
   const padding = (maxValue - minValue) * 0.2;
 
   return (
-    <Card className="border-none">
-      <CardContent>
-        <ChartContainer config={chartConfig}>
-          <LineChart
-            accessibilityLayer
-            data={filteredData}
-            margin={{
-              left: 4,
-              right: 4,
-              bottom: 60,
-            }}
-          >
-            <CartesianGrid
-              strokeDasharray="3 3"
-              stroke="#e0e0e0"
-              horizontal={true}
-              vertical={false}
-            />
-            <YAxis
-              type="number"
-              domain={[minValue - padding, maxValue + padding]}
-            />
-            <XAxis
-              dataKey="date"
-              tickLine={true}
-              axisLine={true}
-              tickMargin={8}
-              tickFormatter={(date) => {
-                return date;
-              }}
-              angle={-45}
-              textAnchor="end"
-            />
-            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-            <Line
-              dataKey="value"
-              type="natural"
-              stroke="#747bff"
-              strokeWidth={1}
-            />
-          </LineChart>
-        </ChartContainer>
-      </CardContent>
-    </Card>
+    <ChartContainer config={chartConfig}>
+      <LineChart
+        accessibilityLayer
+        data={filteredData}
+        margin={{
+          left: 4,
+          right: 4,
+          bottom: 60,
+        }}
+      >
+        <CartesianGrid
+          strokeDasharray="3 3"
+          stroke="#e0e0e0"
+          horizontal={true}
+          vertical={false}
+        />
+        <YAxis
+          type="number"
+          domain={[minValue - padding, maxValue + padding]}
+        />
+        <XAxis
+          dataKey="date"
+          tickLine={true}
+          axisLine={true}
+          tickMargin={8}
+          tickFormatter={(date) => {
+            return date;
+          }}
+          angle={-45}
+          textAnchor="end"
+        />
+        <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+        <Line dataKey="value" type="natural" stroke="#747bff" strokeWidth={1} />
+      </LineChart>
+    </ChartContainer>
   );
 }
 
