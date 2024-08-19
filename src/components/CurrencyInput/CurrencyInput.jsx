@@ -9,16 +9,8 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
-const countries = [
-  { flag: 'BR', name: 'Real brasileiro', currency: 'BRL' },
-  { flag: 'US', name: 'Dólar Americano', currency: 'USD' },
-  { flag: 'CA', name: 'Dólar Canadense', currency: 'CAD' },
-  { flag: 'EU', name: 'Euro', currency: 'EUR' },
-  { flag: 'GB', name: 'Libra Esterlina', currency: 'GBP' },
-  { flag: 'JP', name: 'Yen Japonês', currency: 'JPY' },
-];
-
 const CurrencyInput = ({
+  currencyOptions,
   amount,
   currency,
   onAmountChange,
@@ -35,11 +27,11 @@ const CurrencyInput = ({
           <SelectValue placeholder="" className="text-white" />
         </SelectTrigger>
         <SelectContent className="border-none bg-custom-grey">
-          {countries.map((country) => (
+          {currencyOptions.map((country) => (
             <SelectItem
               key={country.currency}
               value={country.currency}
-              className="flex items-center py-2 px-8 hover:bg-gray-200"
+              className="flex items-center py-2 px-8 hover:bg-gray-200 cursor-pointer"
             >
               <div className="flex items-center">
                 <div className="w-6 h-6 mr-2">
@@ -70,6 +62,13 @@ const CurrencyInput = ({
 };
 
 CurrencyInput.propTypes = {
+  currencyOptions: PropTypes.arrayOf(
+    PropTypes.shape({
+      flag: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   amount: PropTypes.string,
   currency: PropTypes.string,
   onAmountChange: PropTypes.func,

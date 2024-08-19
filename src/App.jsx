@@ -6,11 +6,20 @@ import Skeleton from '@/components/Skeleton/Skeleton';
 import useFetchCurrency from '@/hooks/useFetchCurrency/useFetchCurrency';
 import './App.css';
 
+const currencyOptions = [
+  { flag: 'BR', name: 'Real brasileiro', currency: 'BRL' },
+  { flag: 'US', name: 'Dólar Americano', currency: 'USD' },
+  { flag: 'CA', name: 'Dólar Canadense', currency: 'CAD' },
+  { flag: 'EU', name: 'Euro', currency: 'EUR' },
+  { flag: 'GB', name: 'Libra Esterlina', currency: 'GBP' },
+  { flag: 'JP', name: 'Yen Japonês', currency: 'JPY' },
+];
+
 function App() {
   const [primaryAmount, setPrimaryAmount] = useState('1');
   const [secondaryAmount, setSecondaryAmount] = useState('1');
   const [primaryCurrency, setPrimaryCurrency] = useState('USD');
-  const [secondaryCurrency, setSecondaryCurrency] = useState('EUR');
+  const [secondaryCurrency, setSecondaryCurrency] = useState('BRL');
   const [period, setPeriod] = useState('5');
   const [initialLoad, setInitialLoad] = useState(true);
 
@@ -87,6 +96,7 @@ function App() {
         <div className="w-full">
           <div className="w-full flex flex-col justify-center sm:flex-row items-center gap-4 mb-4">
             <CurrencyInput
+              currencyOptions={currencyOptions}
               amount={primaryAmount}
               currency={primaryCurrency}
               onAmountChange={(amount) => handleAmountChange(amount, 'primary')}
@@ -98,6 +108,7 @@ function App() {
             <CustomButton icon={true} onClick={invertCurrency} />
 
             <CurrencyInput
+              currencyOptions={currencyOptions}
               amount={secondaryAmount}
               currency={secondaryCurrency}
               onAmountChange={(amount) =>
