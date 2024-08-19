@@ -70,10 +70,20 @@ function App() {
   };
 
   const handleCurrencyChange = (newCurrency, field) => {
-    if (field === 'primary') {
-      setPrimaryCurrency(newCurrency);
+    const isPrimary = field === 'primary';
+    const currentCurrency = isPrimary ? primaryCurrency : secondaryCurrency;
+    const oppositeCurrency = isPrimary ? secondaryCurrency : primaryCurrency;
+    const setCurrentCurrency = isPrimary
+      ? setPrimaryCurrency
+      : setSecondaryCurrency;
+
+    if (newCurrency === oppositeCurrency) {
+      setPrimaryCurrency(oppositeCurrency);
+      setSecondaryCurrency(currentCurrency);
+      setPrimaryAmount(secondaryAmount);
+      setSecondaryAmount(primaryAmount);
     } else {
-      setSecondaryCurrency(newCurrency);
+      setCurrentCurrency(newCurrency);
     }
   };
 
