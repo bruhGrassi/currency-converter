@@ -7,18 +7,14 @@ describe('buildApiUrl', () => {
     const baseCurrency = 'USD';
     const targetCurrency = 'EUR';
     const period = 30;
-    const fixedEndDate = '2024-08-14';
-    const fixedStartDate = '2024-07-15';
+    const endDate = new Date().toISOString().split('T')[0];
+    const startDate = new Date(
+      new Date().setDate(new Date().getDate() - period)
+    )
+      .toISOString()
+      .split('T')[0];
 
-    const expectedUrl = `${API}${API_KEY}&base=${baseCurrency}&start_date=${fixedStartDate}&end_date=${fixedEndDate}&symbols=${targetCurrency}`;
-    expect(
-      buildApiUrl(
-        baseCurrency,
-        targetCurrency,
-        period,
-        fixedStartDate,
-        fixedEndDate
-      )
-    ).toBe(expectedUrl);
+    const expectedUrl = `${API}${API_KEY}&base=${baseCurrency}&start_date=${startDate}&end_date=${endDate}&symbols=${targetCurrency}`;
+    expect(buildApiUrl(baseCurrency, targetCurrency, period)).toBe(expectedUrl);
   });
 });
