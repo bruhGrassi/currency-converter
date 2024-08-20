@@ -26,7 +26,7 @@ function CurrencyChart({ data, period }) {
   const padding = (maxValue - minValue) * 0.2;
 
   return (
-    <ChartContainer config={chartConfig}>
+    <ChartContainer config={chartConfig} className={'h-[350px] w-full'}>
       <LineChart
         accessibilityLayer
         data={filteredData}
