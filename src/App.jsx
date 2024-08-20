@@ -105,7 +105,7 @@ function App() {
         <Skeleton />
       ) : (
         <div className="w-full">
-          <div className="w-full flex flex-col justify-center sm:flex-row items-center gap-4 mb-4">
+          <div className="w-full flex flex-col justify-center lg:flex-row items-center gap-4 mb-4">
             <CurrencyInput
               currencyOptions={currencyOptions}
               amount={primaryAmount}
