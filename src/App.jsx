@@ -94,77 +94,77 @@ function App() {
 
   return (
     <>
-      {loading ? (
-        <Skeleton />
-      ) : (
-        <div className="w-full">
-          <div className="w-full flex flex-col justify-center lg:flex-row items-center gap-4 mb-4">
-            <CurrencyInput
-              currencyOptions={currencyOptions}
-              amount={primaryAmount}
-              currency={primaryCurrency}
-              onAmountChange={(amount) => handleAmountChange(amount, 'primary')}
-              onCurrencyChange={(currency) =>
-                handleCurrencyChange(currency, 'primary')
-              }
-            />
-            <Button
-              onClick={invertCurrency}
-              className={'text-green-500 bg-transparent hover:bg-transparent'}
-            >
-              <ArrowLeftRight />
-            </Button>
+      <div className="w-full">
+        <div className="w-full flex flex-col justify-center lg:flex-row items-center gap-4 mb-4">
+          <CurrencyInput
+            currencyOptions={currencyOptions}
+            amount={primaryAmount}
+            currency={primaryCurrency}
+            onAmountChange={(amount) => handleAmountChange(amount, 'primary')}
+            onCurrencyChange={(currency) =>
+              handleCurrencyChange(currency, 'primary')
+            }
+          />
+          <Button
+            onClick={invertCurrency}
+            className={'text-green-500 bg-transparent hover:bg-transparent'}
+          >
+            <ArrowLeftRight />
+          </Button>
 
-            <CurrencyInput
-              currencyOptions={currencyOptions}
-              amount={secondaryAmount}
-              currency={secondaryCurrency}
-              onAmountChange={(amount) =>
-                handleAmountChange(amount, 'secondary')
-              }
-              onCurrencyChange={(currency) =>
-                handleCurrencyChange(currency, 'secondary')
-              }
-            />
-          </div>
-
-          <div className="w-full mb-4 text-center">
-            <p className="text-xl sm:text-2xl mt-16 mb-4">
-              1 {primaryCurrency}
-            </p>
-            <p className="text-3xl sm:text-4xl mb-12">
-              {secondaryAmount} {secondaryCurrency}
-            </p>
-          </div>
-
-          <main>
-            <div className="w-full flex items-center gap-4 mb-16">
-              <Button
-                className={`hover:bg-transparent hover:text-gray-100 ${period === '5' ? 'active' : ''}`}
-                onClick={() => handlePeriod('5')}
-              >
-                5 Dias
-              </Button>
-              <Button
-                className={`hover:bg-transparent hover:text-gray-100 ${period === '30' ? 'active' : ''}`}
-                onClick={() => handlePeriod('30')}
-              >
-                1 Mês
-              </Button>
-            </div>
-            <CurrencyChart period={period} data={currencyData} />
-          </main>
-
-          <footer className="mt-16 text-center">
-            <p>
-              Created with ❤️ by{' '}
-              <a href="https://github.com/bruhGrassi" target="_blank">
-                Bruna Grassi
-              </a>
-            </p>
-          </footer>
+          <CurrencyInput
+            currencyOptions={currencyOptions}
+            amount={secondaryAmount}
+            currency={secondaryCurrency}
+            onAmountChange={(amount) => handleAmountChange(amount, 'secondary')}
+            onCurrencyChange={(currency) =>
+              handleCurrencyChange(currency, 'secondary')
+            }
+          />
         </div>
-      )}
+
+        {loading ? (
+          <Skeleton />
+        ) : (
+          <div>
+            <div className="w-full mb-4 text-center">
+              <p className="text-xl sm:text-2xl mt-16 mb-4">
+                1 {primaryCurrency}
+              </p>
+              <p className="text-3xl sm:text-4xl mb-12">
+                {secondaryAmount} {secondaryCurrency}
+              </p>
+            </div>
+
+            <main>
+              <div className="w-full flex items-center gap-4 mb-16">
+                <Button
+                  className={`hover:bg-transparent hover:text-gray-100 ${period === '5' ? 'active' : ''}`}
+                  onClick={() => handlePeriod('5')}
+                >
+                  5 Dias
+                </Button>
+                <Button
+                  className={`hover:bg-transparent hover:text-gray-100 ${period === '30' ? 'active' : ''}`}
+                  onClick={() => handlePeriod('30')}
+                >
+                  1 Mês
+                </Button>
+              </div>
+              <CurrencyChart period={period} data={currencyData} />
+            </main>
+
+            <footer className="mt-16 text-center">
+              <p>
+                Created with ❤️ by{' '}
+                <a href="https://github.com/bruhGrassi" target="_blank">
+                  Bruna Grassi
+                </a>
+              </p>
+            </footer>
+          </div>
+        )}
+      </div>
       {error && <p>Erro: {error}</p>}
     </>
   );

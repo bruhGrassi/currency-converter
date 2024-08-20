@@ -7,6 +7,6 @@ describe('<Skeleton />', () => {
     const { container } = render(<Skeleton />);
 
     const skeletonElements = container.querySelectorAll('.skeleton');
-    expect(skeletonElements).toHaveLength(4);
+    expect(skeletonElements).toHaveLength(3);
   });
 });
