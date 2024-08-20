@@ -39,7 +39,7 @@ const useFetchCurrency = (baseCurrency, targetCurrency) => {
       }
     };
 
-    const debouncedFetch = debounce(fetchCurrencyData, 500);
+    const debouncedFetch = debounce(fetchCurrencyData, 300);
 
     debouncedFetch();
 
