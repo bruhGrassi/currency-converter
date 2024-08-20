@@ -17,7 +17,7 @@ const CurrencyInput = ({
   onCurrencyChange,
 }) => {
   return (
-    <div className="flex sm:flex-row items-center border border-custom-grey p-3 rounded-xl bg-custom-grey">
+    <div className="flex w-full lg:w-[500px] lg:flex-row items-center border border-custom-grey p-3 rounded-xl bg-custom-grey">
       <Select
         onValueChange={onCurrencyChange}
         value={currency}
