@@ -2,6 +2,12 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import CurrencyInput from './CurrencyInput';
 
+const currencyOptions = [
+  { flag: 'BR', name: 'Real brasileiro', currency: 'BRL' },
+  { flag: 'US', name: 'Dólar Americano', currency: 'USD' },
+  { flag: 'CA', name: 'Dólar Canadense', currency: 'CAD' },
+];
+
 const mockOnAmountChange = vi.fn();
 const mockOnCurrencyChange = vi.fn();
 
@@ -9,6 +15,7 @@ describe('<CurrencyInput />', () => {
   it('renders the CurrencyInput component', () => {
     render(
       <CurrencyInput
+        currencyOptions={currencyOptions}
         amount="100"
         currency="USD"
         onAmountChange={mockOnAmountChange}
@@ -22,6 +29,7 @@ describe('<CurrencyInput />', () => {
   it('should call onAmountChange when the amount input changes', () => {
     render(
       <CurrencyInput
+        currencyOptions={currencyOptions}
         amount="100"
         currency="USD"
         onAmountChange={mockOnAmountChange}
