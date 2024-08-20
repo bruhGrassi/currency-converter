@@ -48,7 +48,9 @@ function App() {
     const amount = parseFloat(primaryAmount);
 
     if (!isNaN(amount) && !isNaN(conversionRate)) {
-      const newSecondaryAmount = (amount * conversionRate).toFixed(2);
+      const newSecondaryAmount = (
+        Math.round(amount * conversionRate * 100) / 100
+      ).toFixed(2);
       setSecondaryAmount(newSecondaryAmount);
     } else {
       setSecondaryAmount('Invalid');
