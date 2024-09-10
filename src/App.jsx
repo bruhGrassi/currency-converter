@@ -36,10 +36,6 @@ function App() {
     }
   }, [currencyData, primaryAmount, primaryCurrency, secondaryCurrency]);
 
-  useEffect(() => {
-    setInitialLoad(false);
-  }, []);
-
   const convertCurrency = () => {
     if (!currencyData || currencyData.length === 0) return;
 
