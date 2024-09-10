@@ -110,7 +110,7 @@ function App() {
           <div>
             <div className="w-full mb-4 text-center">
               <p className="text-xl sm:text-2xl mt-16 mb-4">
-                1 {primaryCurrency}
+                {primaryAmount} {primaryCurrency}
               </p>
               <p className="text-3xl sm:text-4xl mb-12">
                 {secondaryAmount} {secondaryCurrency}
