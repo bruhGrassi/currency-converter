@@ -51,9 +51,6 @@ function CurrencyChart({ data, period }) {
           tickLine={true}
           axisLine={true}
           tickMargin={8}
-          tickFormatter={(date) => {
-            return date;
-          }}
           angle={-45}
           textAnchor="end"
         />
