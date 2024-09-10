@@ -83,10 +83,6 @@ function App() {
     setCurrency(newCurrency);
   };
 
-  const handlePeriod = (newPeriod) => {
-    setPeriod(newPeriod);
-  };
-
   const invertCurrency = () => {
     const tempCurrency = primaryCurrency;
     setPrimaryCurrency(secondaryCurrency);
@@ -142,13 +138,13 @@ function App() {
               <div className="w-full flex items-center gap-4 mb-16">
                 <Button
                   className={`hover:bg-transparent hover:text-gray-100 ${period === '5' ? 'active' : ''}`}
-                  onClick={() => handlePeriod('5')}
+                  onClick={() => setPeriod('5')}
                 >
                   5 Dias
                 </Button>
                 <Button
                   className={`hover:bg-transparent hover:text-gray-100 ${period === '30' ? 'active' : ''}`}
-                  onClick={() => handlePeriod('30')}
+                  onClick={() => setPeriod('30')}
                 >
                   1 Mês
                 </Button>
