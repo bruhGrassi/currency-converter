@@ -22,7 +22,6 @@ function App() {
   const [primaryCurrency, setPrimaryCurrency] = useState('USD');
   const [secondaryCurrency, setSecondaryCurrency] = useState('BRL');
   const [period, setPeriod] = useState('5');
-  const [initialLoad, setInitialLoad] = useState(true);
 
   const {
     data: currencyData,
@@ -31,7 +30,7 @@ function App() {
   } = useFetchCurrency(primaryCurrency, secondaryCurrency, period);
 
   useEffect(() => {
-    if (!initialLoad && currencyData && currencyData.length > 0) {
+    if (currencyData && currencyData.length > 0) {
       convertCurrency();
     }
   }, [currencyData, primaryAmount, primaryCurrency, secondaryCurrency]);
