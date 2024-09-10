@@ -1,4 +1,4 @@
-import { API, API_KEY } from '../../constants';
+import { API_URL } from '../../constants';
 
 export const buildApiUrl = (baseCurrency, targetCurrency, period) => {
   const endDate = new Date().toISOString().split('T')[0];
@@ -6,5 +6,5 @@ export const buildApiUrl = (baseCurrency, targetCurrency, period) => {
     .toISOString()
     .split('T')[0];
 
-  return `${API}${API_KEY}&base=${baseCurrency}&start_date=${startDate}&end_date=${endDate}&symbols=${targetCurrency}`;
+  return `${API_URL}&base=${baseCurrency}&start_date=${startDate}&end_date=${endDate}&symbols=${targetCurrency}`;
 };

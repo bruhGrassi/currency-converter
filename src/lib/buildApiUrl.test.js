@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { buildApiUrl } from './buildApiUrl';
-import { API, API_KEY } from '../../constants';
+import { API_URL } from '../../constants';
 
 describe('buildApiUrl', () => {
   it('should generate the correct URL', () => {
@@ -14,7 +14,7 @@ describe('buildApiUrl', () => {
       .toISOString()
       .split('T')[0];
 
-    const expectedUrl = `${API}${API_KEY}&base=${baseCurrency}&start_date=${startDate}&end_date=${endDate}&symbols=${targetCurrency}`;
+    const expectedUrl = `${API_URL}&base=${baseCurrency}&start_date=${startDate}&end_date=${endDate}&symbols=${targetCurrency}`;
     expect(buildApiUrl(baseCurrency, targetCurrency, period)).toBe(expectedUrl);
   });
 });
