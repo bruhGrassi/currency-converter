@@ -84,10 +84,8 @@ function App() {
   };
 
   const invertCurrency = () => {
-    const tempCurrency = primaryCurrency;
     setPrimaryCurrency(secondaryCurrency);
-    setSecondaryCurrency(tempCurrency);
-    convertCurrency();
+    setSecondaryCurrency(primaryCurrency);
   };
 
   return (
