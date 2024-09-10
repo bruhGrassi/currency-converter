@@ -68,7 +68,7 @@ CurrencyChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.string.isRequired,
-      value: PropTypes.number.isRequired,
+      value: PropTypes.string.isRequired,
     })
   ).isRequired,
   period: PropTypes.oneOf(['5', '30']).isRequired,
