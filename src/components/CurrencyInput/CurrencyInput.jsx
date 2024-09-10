@@ -35,14 +35,7 @@ const CurrencyInput = ({
             >
               <div className="flex items-center">
                 <div className="w-6 h-6 mr-2">
-                  <Flag
-                    code={country.flag}
-                    style={{
-                      width: '24px',
-                      height: '24px',
-                      marginRight: '8px',
-                    }}
-                  />
+                  <Flag className="w-6 h-6 mr-2" code={country.flag} />
                 </div>
                 <span className="text-white">{country.name}</span>
               </div>
