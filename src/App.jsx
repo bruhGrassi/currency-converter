@@ -58,29 +58,19 @@ function App() {
   };
 
   const handleAmountChange = (newAmount, field) => {
-    const regex = /^[0-9]*\.?[0-9]*$/;
-
-    if (!regex.test(newAmount)) return;
-
-    const updateField = {
-      primary: setPrimaryAmount,
-      secondary: setSecondaryAmount,
-    }[field];
-
-    if (updateField) {
-      updateField(newAmount);
+    if (/^[0-9]*\.?[0-9]*$/.test(newAmount)) {
+      field === 'primary'
+        ? setPrimaryAmount(newAmount)
+        : setSecondaryAmount(newAmount);
     }
   };
 
   const handleCurrencyChange = (newCurrency, field) => {
-    if (newCurrency === primaryCurrency || newCurrency === secondaryCurrency) {
-      return;
+    if (newCurrency !== primaryCurrency && newCurrency !== secondaryCurrency) {
+      field === 'primary'
+        ? setPrimaryCurrency(newCurrency)
+        : setSecondaryCurrency(newCurrency);
     }
-
-    const setCurrency =
-      field === 'primary' ? setPrimaryCurrency : setSecondaryCurrency;
-
-    setCurrency(newCurrency);
   };
 
   const invertCurrency = () => {
