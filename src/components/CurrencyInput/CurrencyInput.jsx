@@ -27,17 +27,17 @@ const CurrencyInput = ({
           <SelectValue placeholder="" className="text-white" />
         </SelectTrigger>
         <SelectContent className="border-none bg-custom-grey">
-          {currencyOptions.map((country) => (
+          {currencyOptions.map(({ currency, name, flag }) => (
             <SelectItem
-              key={country.currency}
-              value={country.currency}
+              key={currency}
+              value={currency}
               className="flex items-center py-2 px-8 hover:bg-gray-200 cursor-pointer"
             >
               <div className="flex items-center">
                 <div className="w-6 h-6 mr-2">
-                  <Flag className="w-6 h-6 mr-2" code={country.flag} />
+                  <Flag className="w-6 h-6 mr-2" code={flag} />
                 </div>
-                <span className="text-white">{country.name}</span>
+                <span className="text-white">{name}</span>
               </div>
             </SelectItem>
           ))}
